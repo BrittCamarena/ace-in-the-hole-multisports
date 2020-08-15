@@ -11,6 +11,7 @@
  * make sure we're resetting all spacing elements.
  *
  */
+
  html, body {
 	border: 0;
 	font-family: sans-serif;
@@ -70,6 +71,8 @@ a img {
 @secondFont: "Roboto Condensed";
 @redAccent: #df0d0d;
 @backgroundColor: #201919;
+@bannerOverlay: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6));
+@inlineWidth: 48%;
 
 // End variables
 
@@ -77,6 +80,22 @@ a img {
 * STANDARD TAGS
 *
 */
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+ }
+
+ html {
+    scroll-padding-top: 10em;
+}
+
+ body {
+     font-family: @globalFont, sans-serif;
+ }
 
 h1, h2, h3, p {
     margin-bottom: .5em;
@@ -106,6 +125,59 @@ a, a:link, a:hover, a:active, a:visited {
     text-decoration: none;
 }
 
+form {
+	margin: 2em auto 0 auto;
+    max-width: 45em;
+    color: #555;
+}
+
+label {
+	display: block;
+	padding-bottom: .5em;
+    line-height: normal;
+    font-weight: bold;
+}
+
+input, select, textarea {
+	display: block;
+	margin-bottom: 1.5em;
+	padding: .7em;
+	width: 100%;
+	font-family: sans-serif;
+    font-size: inherit;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+        &:focus:required:invalid {
+            box-shadow: 0 0 2px 2px red;
+        }
+
+        &:required:valid {
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        }
+}
+
+input[type=submit] {
+    margin: 0 auto;
+    padding: 1em;
+    width: 8em;
+    background-color: #ebebeb;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: none;
+    border: none;
+    transition: .3s;
+
+        &:hover {
+
+            color: white;
+            background-color: @redAccent;
+        }
+}
+
 body {
     font-family: @globalFont;
     background-color: @backgroundColor;
@@ -113,9 +185,10 @@ body {
 
 nav {
     position: fixed;
+    z-index: 11;
     top: 0;
     width: 100%;
-    height: 90px;
+    height: 108px;
     font-family: @secondFont;
     font-size: 1.3em;
     color: white;
@@ -132,6 +205,10 @@ nav {
         display: inline-block;
         vertical-align: middle;
         margin-left: 1em;
+
+        &:first-child {
+            margin-left: 0;
+        }
     }
 
     a {
@@ -148,7 +225,6 @@ nav {
 }
 
 header {
-    background-color: #5b5252;
     width:100%;
     height: 20em;
     margin: 108px 0 0 0;
@@ -158,6 +234,9 @@ header {
 
     h1 {
         color: white;
+        font-size: 3.2em;
+        text-shadow: 0 0 14px black;
+        margin: 0 .5em;
     }
 }
 
@@ -198,7 +277,17 @@ footer {
     padding: 2em 0;
 }
 
-.iconSize() {
+.iconSizeMain {
+    position: relative;
+    width: 10em;
+    height: 14em;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: slideIn .5s;
+}
+
+.iconSizeFooter() {
     display: inline-block;
     width: 3em;
     height: 3em;
@@ -206,6 +295,11 @@ footer {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
+}
+
+.bannerSize() {
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 // End mixins
@@ -239,6 +333,17 @@ footer {
     padding-top: 33px;
 }
 
+.registerBanner {
+    .bannerSize();
+    background-image: @bannerOverlay, url("../images/registerBanner.jpg");
+}
+
+.contactBanner {
+    .bannerSize();
+    background-position: center;
+    background-image: @bannerOverlay, url("../images/contactBanner.jpg");
+}
+
 .wrapper {
     max-width: 1350px;
     margin: 0 auto;
@@ -248,6 +353,35 @@ footer {
 
 .redHead {
     color: @redAccent;
+}
+
+.ulMain {
+    width: 50%;
+    margin: 1em auto;
+}
+
+.formIcon {
+    background-image: url("../images/form.svg");
+    .iconSizeMain();
+}
+
+.contactIcon {
+    background-image: url("../images/contact.svg");
+    .iconSizeMain();
+}
+
+.left {
+    float: left;
+    width: @inlineWidth;
+}
+
+.right {
+    float: right;
+    width: @inlineWidth;
+}
+
+.center {
+    text-align: center;
 }
 
 /**
@@ -266,12 +400,22 @@ footer {
 
 #twitter-icon {
     background-image: url("../images/twitter.svg");
-    .iconSize();
+    .iconSizeFooter();
 }
 
 #facebook-icon {
     background-image: url("../images/facebook.svg");
-    .iconSize();
+    .iconSizeFooter();
+}
+
+/**
+* Animation keyframes
+*
+*/
+
+@keyframes slideIn {
+	0% { opacity: 0; top: 2em; }
+	100% { opacity: 1; top: 0; }
 }
 
 /**
@@ -285,8 +429,10 @@ footer {
     }
     
     .navbar-menu {
-        text-align: right;
-        padding-top: 15px;
+        padding-top: 18px;
+        float: right;
+        width: 17em;
+        font-size: .9em;
     }
 }
 
@@ -297,7 +443,7 @@ footer {
 
 @media only all and (max-width: 786px) {
     nav {
-        height: 66px;
+        height: 85px;
 
         .wrapper {
             padding-left: .5em;
@@ -309,7 +455,7 @@ footer {
     }
 
     header {
-        margin-top: 83px;
+        margin-top: 85px;
     }
 
     footer {
@@ -319,6 +465,30 @@ footer {
     .navLogo {
         width: 92%;
         height: 4em;
+    }
+
+    
+    .ulMain {
+        width: 100%;
+    }
+
+    .left {
+        float: none;
+        width: 100%;
+    }
+
+    .right {
+        float: none;
+        width: 100%
+    }
+
+    #col-1 {
+        float: none;
+    }
+
+    #col-2 {
+        float: none;
+        padding: 0;
     }
     
     /**
@@ -436,14 +606,5 @@ footer {
                 top: 0;
             }
         }
-    }
-
-    #col-1 {
-        float: none;
-    }
-
-    #col-2 {
-        float: none;
-        padding: 0;
     }
 }
