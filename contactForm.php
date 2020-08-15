@@ -13,3 +13,4 @@ if (isset($_POST["name"])) {
 
     mail($mailTo, $subject, $text, $headers);
 }
+?>
