@@ -165,14 +165,17 @@ h3 {
 }
 p {
   font-size: 1.1em;
+  margin-bottom: 1em;
 }
 a,
 a:link,
-a:hover,
-a:active,
 a:visited {
-  color: inherit;
-  text-decoration: none;
+  color: #df0d0d;
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+  color: #f75555;
 }
 form {
   margin: 2em auto 0 auto;
@@ -254,12 +257,18 @@ nav li {
 nav li:first-child {
   margin-left: 0;
 }
-nav a:link {
+nav a {
+  color: white;
+}
+nav a:link,
+nav a:visited {
+  color: white;
   text-decoration: none;
   border-bottom: 0.15em solid rgba(0, 0, 0, 0);
   transition: border 0.3s ease-in;
 }
 nav a:hover {
+  color: white;
   border-bottom: 0.14em solid;
 }
 header {
@@ -305,7 +314,7 @@ footer p {
   position: relative;
   width: 10em;
   height: 14em;
-  margin: 0 auto;
+  margin: 0 auto 1em auto;
   background-repeat: no-repeat;
   background-size: contain;
   animation: slideIn 0.5s;
@@ -346,6 +355,23 @@ footer p {
   background-position: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/contactBanner.jpg");
 }
+.eventsBanner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/eventsBanner.jpg");
+}
+.scheduleBanner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/scheduleBanner.jpg");
+  background-position: center center;
+}
+.rulesBanner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/rulesBanner.jpg");
+  background-position: center center;
+}
 .wrapper {
   max-width: 1350px;
   margin: 0 auto;
@@ -359,12 +385,55 @@ footer p {
   width: 50%;
   margin: 1em auto;
 }
+.ulMain li {
+  margin: 1em 0;
+}
+.indexIcon {
+  background-image: url("../images/everybody.svg");
+  position: relative;
+  width: 10em;
+  height: 14em;
+  margin: 0 auto 1em auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: slideIn 0.5s;
+}
+.eventsIcon {
+  background-image: url("../images/events.svg");
+  position: relative;
+  width: 10em;
+  height: 14em;
+  margin: 0 auto 1em auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: slideIn 0.5s;
+}
+.scheduleIcon {
+  background-image: url("../images/schedule.svg");
+  position: relative;
+  width: 10em;
+  height: 14em;
+  margin: 0 auto 1em auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: slideIn 0.5s;
+}
+.rulesIcon {
+  background-image: url("../images/rules.svg");
+  position: relative;
+  width: 10em;
+  height: 14em;
+  margin: 0 auto 1em auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: slideIn 0.5s;
+}
 .formIcon {
   background-image: url("../images/form.svg");
   position: relative;
   width: 10em;
   height: 14em;
-  margin: 0 auto;
+  margin: 0 auto 1em auto;
   background-repeat: no-repeat;
   background-size: contain;
   animation: slideIn 0.5s;
@@ -374,10 +443,13 @@ footer p {
   position: relative;
   width: 10em;
   height: 14em;
-  margin: 0 auto;
+  margin: 0 auto 1em auto;
   background-repeat: no-repeat;
   background-size: contain;
   animation: slideIn 0.5s;
+}
+.weatherLink {
+  display: none;
 }
 .left {
   float: left;
@@ -400,6 +472,22 @@ footer p {
 #col-2 {
   float: right;
   padding: 0.6em;
+}
+#twitterFeed {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+#facebookFeed {
+  float: right;
+  width: 50%;
+  text-align: center;
+}
+#facebookFeedTablet {
+  display: none;
+}
+#socialMediaButtons {
+  display: none;
 }
 #twitter-icon {
   background-image: url("../images/twitter.svg");
@@ -449,6 +537,18 @@ footer p {
     width: 17em;
     font-size: 0.9em;
   }
+  .ulMain {
+    width: 70%;
+  }
+  #facebookFeed {
+    display: none;
+  }
+  #facebookFeedTablet {
+    display: block;
+    float: right;
+    width: 50%;
+    text-align: right;
+  }
 }
 /**
 * Query for mobile phone screens
@@ -472,10 +572,16 @@ footer p {
   }
   .navLogo {
     width: 92%;
+    max-width: 400px;
     height: 4em;
   }
   .ulMain {
-    width: 100%;
+    width: 85%;
+  }
+  .weatherLink {
+    display: block;
+    font-size: 1.5em;
+    text-align: center;
   }
   .left {
     float: none;
@@ -484,6 +590,76 @@ footer p {
   .right {
     float: none;
     width: 100%;
+  }
+  #twitterFeed {
+    display: none;
+  }
+  #facebookFeedTablet {
+    display: none;
+  }
+  #socialMediaButtons {
+    display: block;
+    text-align: center;
+  }
+  #socialMediaButtons #twitterFeedButton {
+    display: inline-block;
+    width: 10em;
+    margin-top: 1em;
+    font-size: 1.1em;
+    text-align: right;
+    color: white;
+    background-color: #df0d0d;
+    background-repeat: no-repeat;
+    background-size: 2em;
+    background-position: 1em center;
+    border: none;
+    border-radius: 20px;
+    transition: 0.3s;
+    background-image: url("../images/twitter.svg");
+  }
+  #socialMediaButtons #twitterFeedButton:hover {
+    cursor: pointer;
+    background-color: #f75555;
+  }
+  #socialMediaButtons #twitterFeedButton a {
+    display: block;
+    padding: 1em 1.5em 1em 1em;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+  }
+  #socialMediaButtons #twitterFeedButton a {
+    padding-right: 2.4em;
+  }
+  #socialMediaButtons #facebookFeedButton {
+    display: inline-block;
+    width: 10em;
+    margin-top: 1em;
+    font-size: 1.1em;
+    text-align: right;
+    color: white;
+    background-color: #df0d0d;
+    background-repeat: no-repeat;
+    background-size: 2em;
+    background-position: 1em center;
+    border: none;
+    border-radius: 20px;
+    transition: 0.3s;
+    background-image: url("../images/facebook.svg");
+  }
+  #socialMediaButtons #facebookFeedButton:hover {
+    cursor: pointer;
+    background-color: #f75555;
+  }
+  #socialMediaButtons #facebookFeedButton a {
+    display: block;
+    padding: 1em 1.5em 1em 1em;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+  }
+  #weatherFeed {
+    display: none;
   }
   #col-1 {
     float: none;
