@@ -26,7 +26,7 @@
 
                 <img
                 src="images/jsGallery/img1.jpg"
-                alt=""
+                alt="galleryIMG1"
                 />
             </li>
             <li>
@@ -36,7 +36,7 @@
 
                 <img
                 src="images/jsGallery/img2.jpg"
-                alt=""
+                alt="galleryIMG2"
                 />
             </li>
             <li>
@@ -46,7 +46,7 @@
                 
                 <img
                 src="images/jsGallery/img3.jpg"
-                alt=""
+                alt="galleryIMG3"
                 />
             </li>
             <li>
@@ -56,7 +56,7 @@
 
                 <img
                 src="images/jsGallery/img4.jpg"
-                alt=""
+                alt="galleryIMG4"
                 />
             </li>
             </ul>
