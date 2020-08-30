@@ -26,7 +26,7 @@
 
                 <img
                 src="images/jsGallery/img1.jpg"
-                alt="galleryIMG1"
+                alt="Top-down view of a swimmer in water"
                 />
             </li>
             <li>
@@ -36,7 +36,7 @@
 
                 <img
                 src="images/jsGallery/img2.jpg"
-                alt="galleryIMG2"
+                alt="Group of bikers taveling on a track"
                 />
             </li>
             <li>
@@ -46,7 +46,7 @@
                 
                 <img
                 src="images/jsGallery/img3.jpg"
-                alt="galleryIMG3"
+                alt="Front view of a runner sprinting on a track"
                 />
             </li>
             <li>
@@ -56,7 +56,7 @@
 
                 <img
                 src="images/jsGallery/img4.jpg"
-                alt="galleryIMG4"
+                alt="Three people standing together arm in arm"
                 />
             </li>
             </ul>
