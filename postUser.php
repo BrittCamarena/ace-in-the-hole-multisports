@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect("localhost", "pccproj1_admin", "myD@tabase", "pccproj1_cas222");
+$conn = mysqli_connect(***LOGIN_REDACTED***);
 
 if (isset($_POST["name"])) {	
 	$name = mysqli_real_escape_string($conn, $_POST["name"]);
